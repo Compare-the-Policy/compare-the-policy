@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare the Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  button, summary, a, label { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+  html, body { margin: 0; }
+  body { background: #F5F4F0; color: #1C1B19; font-family: 'Public Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  h1, h2 { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; margin: 0; }
+  h3, h4 { font-family: 'Public Sans', system-ui, sans-serif; font-weight: 600; margin: 0; }
+  a { text-decoration: none; border-bottom: 1px solid transparent; color: inherit; }
+  a:hover { border-bottom-color: currentColor; }
+  a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #46596B; outline-offset: 3px; border-radius: 2px; }
+  summary { cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::marker { display: none; content: ""; }
+  .policy-grid { display: flex; flex-direction: column; gap: 26px; }
+  .category-block { margin-top: 30px; }
+  .category-block:first-child { margin-top: 22px; }
+  .category-label { font-size: 13px; font-weight: 600; color: #66625B; margin: 0 0 14px; letter-spacing: 0.01em; }
+  .ai-info-note { position: absolute; top: calc(100% + 8px); left: 0; z-index: 15; margin: 0; width: 240px; background: #FFFFFF; border: 1px solid #DEDBD3; border-radius: 6px; padding: 10px 14px; box-shadow: 0 8px 20px rgba(28,27,25,0.16); font-size: 12px; line-height: 1.5; color: #66625B; }
+  .ai-info-note::before { content: ""; position: absolute; top: -6px; left: 14px; width: 10px; height: 10px; background: #FFFFFF; border-left: 1px solid #DEDBD3; border-top: 1px solid #DEDBD3; transform: rotate(45deg); }
+  .nav-menu { display: none; }
+  button { font-family: inherit; }
+  .text-btn { background: none; border: none; padding: 4px 2px; font-size: 13px; color: #46596B; cursor: pointer; }
+  .text-btn:hover { text-decoration: underline; }
+  .filter-summary { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: #1C1B19; background: #FFFFFF; border: 1px solid #DEDBD3; border-radius: 6px; padding: 10px 16px; cursor: pointer; }
+  .filter-summary:hover { border-color: #B9B6AC; }
+  .dropdown-panel { position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; background: #FFFFFF; border: 1px solid #DEDBD3; border-radius: 6px; box-shadow: 0 8px 24px rgba(28,27,25,0.14); width: min(420px, 90vw); max-height: 420px; display: flex; flex-direction: column; }
+  .party-row { display: flex; align-items: center; gap: 10px; padding: 9px 14px; font-size: 14px; color: #1C1B19; cursor: pointer; border-radius: 4px; }
+  .party-row:hover { background: #F5F4F0; }
+  .party-check { width: 16px; height: 16px; flex-shrink: 0; accent-color: #46596B; }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-anim { animation: riseIn 0.6s ease-out both; }
+  @media (prefers-reduced-motion: reduce) { .hero-anim { animation: none; } }
+  @media (max-width: 760px) {
+    .page-pad { padding-left: 22px !important; padding-right: 22px !important; }
+    .hero-grid { grid-template-columns: 1fr !important; padding-top: 40px !important; }
+    .site-title { font-size: 34px !important; }
+    .party-title { font-size: 22px !important; }
+    .nav-links { display: none !important; }
+    .nav-menu { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<div style="width: 100%; min-height: 100vh; background: #F5F4F0;">
+
+  <!-- Top bar -->
+  <div style="position: sticky; top: 0; z-index: 10; background: rgba(245,244,240,0.92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-bottom: 1px solid #DEDBD3;">
+    <div class="page-pad" style="max-width: 960px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: relative;">
+      <a href="#top" style="display: flex; align-items: center; gap: 10px; color: #1C1B19; border-bottom: none;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <rect x="3" y="9" width="6" height="10" rx="1.5" fill="#46596B"></rect>
+          <rect x="13" y="3" width="6" height="16" rx="1.5" fill="#1C1B19"></rect>
+        </svg>
+        <span style="font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 18px;">Compare the Policy</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary" style="display: flex; gap: 32px;">
+        <a href="#parties" style="font-size: 14px; color: #3A3733;">Parties</a>
+        <a href="#about" style="font-size: 14px; color: #3A3733;">About</a>
+        <a href="#sources" style="font-size: 14px; color: #3A3733;">Sources</a>
+      </nav>
+      <details class="nav-menu js-dropdown">
+        <summary style="font-size: 14px; color: #3A3733; padding: 6px 2px;">Menu</summary>
+        <div style="position: absolute; right: 22px; top: 52px; background: #FFFFFF; border: 1px solid #DEDBD3; border-radius: 4px; padding: 14px 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 16px rgba(28,27,25,0.08);">
+          <a href="#parties" style="font-size: 14px; color: #3A3733;">Parties</a>
+          <a href="#about" style="font-size: 14px; color: #3A3733;">About</a>
+          <a href="#sources" style="font-size: 14px; color: #3A3733;">Sources</a>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="top" class="page-pad hero-grid" style="max-width: 960px; margin: 0 auto; padding: 72px 40px 48px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: start;">
+    <div class="hero-anim" style="display: flex; flex-direction: column; gap: 20px;">
+      <h1 class="site-title" style="font-size: 46px; line-height: 1.12; color: #1C1B19;">Compare the Policy</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3A3733; max-width: 46ch;">
+        A plain-language look at what Australia's <span id="party-count-hero">34</span> federally registered political parties are proposing, brought together in one place so it's easier to compare.
+      </p>
+    </div>
+    <div class="hero-anim" style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="border: 1px solid #DEDBD3; background: #FFFFFF; padding: 16px 20px; border-radius: 4px;">
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #66625B;">
+          Policy titles are exactly as published by each party. Categories are assigned by Compare the Policy to group similar policies together, and summaries are written from each party's own source material — both are marked with an ⓘ on every policy. First-pass research dataset prepared 21 September 2026; some sources are still being verified.
+        </p>
+      </div>
+      <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px;">
+        <li style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: #46596B;">1</span>
+          <span style="font-size: 14px; line-height: 1.5; color: #3A3733;">Every party is shown by default — filter down to just the ones you want to compare.</span>
+        </li>
+        <li style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: #46596B;">2</span>
+          <span style="font-size: 14px; line-height: 1.5; color: #3A3733;">Policies are grouped into categories, with a plain-language summary underneath each one.</span>
+        </li>
+        <li style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: #46596B;">3</span>
+          <span style="font-size: 14px; line-height: 1.5; color: #3A3733;">Check the source and the ⓘ note on any policy for where it came from.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- About / ethos -->
+  <section id="about" class="page-pad" style="max-width: 960px; margin: 0 auto; padding: 8px 40px 56px;">
+    <blockquote style="margin: 0; border-left: 3px solid #46596B; padding-left: 28px; font-family: 'Source Serif 4', Georgia, serif; font-weight: 500; font-size: 25px; line-height: 1.5; color: #1C1B19; max-width: 46ch;">
+      It won't tell you who to vote for. It shows you what's being proposed, and leaves the rest to you.
+    </blockquote>
+  </section>
+
+  <!-- Filters -->
+  <div id="parties" class="page-pad" style="max-width: 960px; margin: 0 auto; padding: 0 40px 8px; border-top: 1px solid #DEDBD3; padding-top: 32px; display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap;">
+    <details class="js-dropdown" style="position: relative;">
+      <summary class="filter-summary">
+        <span id="party-filter-label">Filter parties · 34 of 34 selected</span>
+        <span aria-hidden="true">⌄</span>
+      </summary>
+      <div class="dropdown-panel">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid #DEDBD3; flex-shrink: 0;">
+          <span id="party-filter-count" style="font-size: 12px; color: #8B877E;">34 of 34 selected</span>
+          <div style="display: flex; gap: 14px;">
+            <button type="button" class="text-btn" id="party-select-all">Select all</button>
+            <button type="button" class="text-btn" id="party-clear-all">Clear all</button>
+          </div>
+        </div>
+        <div id="party-checklist" style="overflow-y: auto; padding: 6px;"></div>
+      </div>
+    </details>
+
+    <details class="js-dropdown" style="position: relative;">
+      <summary class="filter-summary">
+        <span id="category-filter-label">Filter categories · 21 of 21 selected</span>
+        <span aria-hidden="true">⌄</span>
+      </summary>
+      <div class="dropdown-panel">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid #DEDBD3; flex-shrink: 0;">
+          <span id="category-filter-count" style="font-size: 12px; color: #8B877E;">21 of 21 selected</span>
+          <div style="display: flex; gap: 14px;">
+            <button type="button" class="text-btn" id="category-select-all">Select all</button>
+            <button type="button" class="text-btn" id="category-clear-all">Clear all</button>
+          </div>
+        </div>
+        <div id="category-checklist" style="overflow-y: auto; padding: 6px;"></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="page-pad" style="max-width: 960px; margin: 0 auto; padding: 0 40px 100px; display: flex; flex-direction: column; gap: 8px;">
+    <div id="empty-state"></div>
+    <div id="party-list"></div>
+
+    <!-- Footer -->
+    <footer id="sources" style="border-top: 1px solid #DEDBD3; padding-top: 36px; margin-top: 40px; display: flex; flex-direction: column; gap: 12px;">
+      <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #66625B; max-width: 62ch;">
+        Compare the Policy doesn't rank, score or recommend any party. It exists to make policies easier to find and understand, so you can make up your own mind.
+      </p>
+      <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #8B877E; max-width: 62ch;">
+        Policy titles are preserved exactly as published by each party. Categories and summaries are written by Compare the Policy to make browsing and comparison easier — look for the ⓘ AI info note on each policy, and the Source link back to the original material. Where a party's own index could not be confirmed, or is tied to a past election or campaign, that's noted under the party's name above.
+      </p>
+    </footer>
+  </div>
+</div>
+
+<script>
+const SRC = {
+      "Affordable Housing Now – Sustainable Australia Party": { u: "https://www.sustainableaustralia.org.au/policies", s: "official_current" },
+      "Animal Justice Party": { u: "https://www.animaljusticeparty.org/our_policies", s: "official_current" },
+      "Australia's Voice": { u: "https://australiasvoice.com.au/what-we-stand-for/", s: "official_current_developing_platform" },
+      "Australian Christians": { u: "https://www.australianchristians.org.au/positions/", s: "official_current_positions" },
+      "Australian Citizens Party": { u: "https://citizensparty.org.au/", s: "official_current_verification_needed_for_individual_items" },
+      "Australian Democrats": { u: "https://www.democrats.org.au/policy/", s: "official_current" },
+      "Australian Federation Party": { u: "https://www.reformaustralia.com.au/policies", s: "official_current_destination_needs_identity_verification" },
+      "Australian Greens": { u: "https://greens.org.au/platform", s: "official_2025_election_platform_still_published" },
+      "Australian Labor Party": { u: "https://www.alp.org.au/our-policies/what-were-working-on/", s: "official_current" },
+      "Better Together Party": { u: "https://www.bettertogetherparty.com.au/", s: "official_current" },
+      "Centre Alliance": { u: "", s: "verification_required" },
+      "Country Liberal Party (NT)": { u: "https://clp.org.au/", s: "official_current_but_mainly_nt_platform" },
+      "Dai Le & Frank Carbone W.S.C.": { u: "https://daile.com.au/dai-in-canberra/", s: "official_current" },
+      "David Pocock": { u: "https://www.davidpocock.com.au/policy", s: "official_current" },
+      "Family First Party Australia": { u: "https://www.familyfirstparty.org.au/policy", s: "official_current" },
+      "Fusion Party Australia": { u: "https://reclaim.fusionparty.org.au/", s: "official_current_national_platform" },
+      "Gerard Rennick People First": { u: "https://peoplefirstparty.au/policies", s: "official_current" },
+      "HEART Party": { u: "https://heartparty.com.au/Policies", s: "official_current" },
+      "Indigenous-Aboriginal Party of Australia": { u: "https://www.indigenouspartyofaustralia.com/our-policies", s: "official_current_with_some_historical_wins" },
+      "Jacqui Lambie Network": { u: "https://lambienetwork.com.au/pages/campaigns", s: "official_current_campaigns" },
+      "Katter's Australian Party": { u: "https://kattersaustralianparty.org.au/what-we-stand-for/", s: "official_current_principles" },
+      "Legalise Cannabis Australia": { u: "https://www.legalisecannabis.org.au/party-policy", s: "official_current" },
+      "Liberal National Party of Queensland": { u: "https://www.lnp.org.au/plan-for-australia", s: "official_current" },
+      "Liberal Party of Australia": { u: "https://www.liberal.org.au/our-plan", s: "official_current" },
+      "Libertarian Party": { u: "https://www.libertarians.org.au/policies_federal", s: "official_current" },
+      "National Party of Australia": { u: "https://www.nationals.org.au/election-policies", s: "official_2025_election_platform" },
+      "Pauline Hanson's One Nation": { u: "https://www.onenation.org.au/issues", s: "official_current" },
+      "Power 2 People": { u: "https://power2people.com.au/", s: "official_current_developing_platform" },
+      "Shooters, Fishers and Farmers Party": { u: "https://www.shootersfishersandfarmers.org.au/federal_policies-new", s: "official_current" },
+      "Socialist Alliance": { u: "https://socialist-alliance.org/policy", s: "official_current" },
+      "Tammy Tyrrell for Tasmania": { u: "https://tammytyrrell.com/on-the-issues", s: "official_current" },
+      "The Great Australian Party": { u: "https://www.greataustralianparty.com.au/policies", s: "official_current" },
+      "United Australia Party": { u: "https://www.unitedaustraliaparty.org.au/national_policy/", s: "official_current" },
+      "Victorian Socialists": { u: "https://victoriansocialists.org.au/campaigns/federal-election-2025", s: "official_2025_federal_campaign" }
+    };const CATS = {
+      "Affordable Housing Now – Sustainable Australia Party": {
+        "Agriculture & Regional Australia": ["Regional Australia"],
+        "Animal Welfare": ["Animals & Biodiversity"],
+        "Arts & Culture": ["The Arts"],
+        "Defence & Veterans": ["Defence"],
+        "Economy & Cost of Living": ["Economy","Foreign Investment"],
+        "Education": ["Education"],
+        "Energy & Resources": ["Energy","Finite & Non-renewable Resources"],
+        "Environment & Climate": ["Environment","Waste","Water"],
+        "Foreign Affairs & Trade": ["Trade"],
+        "Government, Democracy & Integrity": ["Anti-corruption & Governance","Privatisation & Public Assets"],
+        "Health & Aged Care": ["Ageing","Health"],
+        "Housing": ["Housing & Rental Affordability"],
+        "Immigration & Population": ["Population & Immigration (Australia)","Population (Global)"],
+        "Indigenous Affairs": ["Indigenous / Aboriginal & Torres Strait Islander Australians"],
+        "Infrastructure & Transport": ["Planning & Development","Transport"],
+        "Jobs, Industry & Small Business": ["Job Guarantee"],
+        "Justice, Rights & Civil Liberties": ["Law & Order"],
+        "Science, Technology & Communications": ["Media","Science"],
+        "Social Services & Community": ["Gambling","Welfare & Wellbeing"],
+        "Taxation & Finance": ["Taxation"]
+      },
+      "Animal Justice Party": {
+        "Agriculture & Regional Australia": ["Biosecurity"],
+        "Animal Welfare": ["1080","Animal Agriculture","Animal Definition","Animal Experimentation","Animals in Entertainment","Aquaculture","Aversive Training","Bats and Flying Foxes","Brumbies","Companion Animals","Cultured Meat","Dingoes","Duck Shooting","Fur","Greyhound Racing","Horse Racing, Jumps and Harness","Hunting Methods","Introduced Animals","Invertebrates","Kangaroos","Koalas","Live Animal Export","Marine Animals","Mouse Populations","Native Birds","Platypus","Puppy and Kitten Farms","Rodeos","Sharks","Urban Animals","Veterinary Care","Wet Markets","Wildlife Care","Wildlife Protection","Wombats"],
+        "Economy & Cost of Living": ["Ethical Economy"],
+        "Education": ["Education"],
+        "Energy & Resources": ["Energy","Natural Gas"],
+        "Environment & Climate": ["Climate Emergency","Environmental Law","Fire Management","Forestry","Great Barrier Reef","Land Clearing","Waste","Water Management"],
+        "Foreign Affairs & Trade": ["Conflict and Warfare","International Affairs"],
+        "Government, Democracy & Integrity": ["Corruption","Democracy"],
+        "Health & Aged Care": ["Health","Healthcare","Mental Health","Processed Meat","Vaccinations","Voluntary Euthanasia"],
+        "Housing": ["Homelessness","Housing"],
+        "Immigration & Population": ["Asylum Seekers","Human Population & Planning"],
+        "Indigenous Affairs": ["First Nations"],
+        "Infrastructure & Transport": ["Land Transport"],
+        "Jobs, Industry & Small Business": ["Just Transition for Meat Industry Workers"],
+        "Justice, Rights & Civil Liberties": ["Abortion","Age of Criminal Responsibility","Cannabis","Equality","Family or Domestic Violence","Fireworks","Gender Equality","Gun Control","Law and Social Justice","Marriage Equality"],
+        "Science, Technology & Communications": ["Genetic Manipulation"],
+        "Social Services & Community": ["Gambling"]
+      },
+      "Australia's Voice": {
+        "Defence & Veterans": ["Defence"],
+        "Education": ["Fix Student HECS debt"],
+        "Energy & Resources": ["End the Resource Rip-Off"],
+        "Environment & Climate": ["Real Climate Action"],
+        "Foreign Affairs & Trade": ["End the Genocide","Parliament Vote on War"],
+        "Government, Democracy & Integrity": ["End Political Perks","Republic"],
+        "Housing": ["Housing"],
+        "Justice, Rights & Civil Liberties": ["Domestic Violence"],
+        "Social Services & Community": ["National Poverty Measure","Raise Jobseeker","Raise the Remote Area Allowance"],
+        "Taxation & Finance": ["Bank Reform","Supermarket Divestiture"]
+      },
+      "Australian Christians": {
+        "Agriculture & Regional Australia": ["Regional Australia"],
+        "Economy & Cost of Living": ["Economy"],
+        "Education": ["Education"],
+        "Environment & Climate": ["Environment"],
+        "Health & Aged Care": ["Health"],
+        "Indigenous Affairs": ["First Nations"],
+        "Justice, Rights & Civil Liberties": ["Pro Life","Religious Freedom"],
+        "Social Services & Community": ["Family","Social"]
+      },
+      "Australian Citizens Party": {
+        "Government, Democracy & Integrity": ["Return Government to the People"],
+        "Justice, Rights & Civil Liberties": ["Repeal, Don\u2019t Expand, ASIO\u2019s Secret Police Powers"],
+        "Taxation & Finance": ["Aussie Post Office Bank"]
+      },
+      "Australian Democrats": {
+        "Agriculture & Regional Australia": ["Rural & Remote Australia"],
+        "Economy & Cost of Living": ["Economy"],
+        "Education": ["Education"],
+        "Environment & Climate": ["Environment & Climate"],
+        "Foreign Affairs & Trade": ["Global Affairs & Defence"],
+        "Government, Democracy & Integrity": ["Transparency & Accountability"],
+        "Health & Aged Care": ["Health & Wellbeing"],
+        "Justice, Rights & Civil Liberties": ["Justice & Equity"],
+        "Science, Technology & Communications": ["Science & Technology"]
+      },
+      "Australian Federation Party": {
+        "Defence & Veterans": ["A Sovereign, Secure Nation","Defence","Veterans"],
+        "Economy & Cost of Living": ["Drive Down the Cost of Living","Opportunity for All"],
+        "Education": ["Excellence in Education"],
+        "Energy & Resources": ["Secure and Affordable Energy"],
+        "Environment & Climate": ["Environmental Stewardship"],
+        "Government, Democracy & Integrity": ["Democratic Integrity","Efficient and Transparent Government"],
+        "Health & Aged Care": ["Health"],
+        "Housing": ["Delivering Affordable Housing"],
+        "Immigration & Population": ["Strategic Immigration Policy"],
+        "Infrastructure & Transport": ["Nation Building"],
+        "Justice, Rights & Civil Liberties": ["Crime and Community Safety","Freedom"],
+        "Science, Technology & Communications": ["Prosperity Through Innovation"],
+        "Social Services & Community": ["A Fair and Caring Society","Personal Responsibility","Preserving Australian Identity","Supporting Families"]
+      },
+      "Australian Greens": {
+        "Agriculture & Regional Australia": ["Agriculture & Biosecurity"],
+        "Animal Welfare": ["Animal Welfare"],
+        "Arts & Culture": ["Arts"],
+        "Defence & Veterans": ["Defence & Veterans' Affairs"],
+        "Education": ["Early Childhood Education","Primary & Secondary Schooling","Tertiary Education"],
+        "Energy & Resources": ["Resources"],
+        "Environment & Climate": ["Climate Adaptation & Resilience","Climate Change & Energy","Environment","Forests","Healthy Oceans","Waste & Recycling"],
+        "Foreign Affairs & Trade": ["Foreign Affairs","International Aid & Global Justice","Trade & Tourism"],
+        "Government, Democracy & Integrity": ["Democracy","Emergency Management","Public Sector","The Republic"],
+        "Health & Aged Care": ["Health & Mental Health","Older People"],
+        "Housing": ["Housing"],
+        "Immigration & Population": ["Immigration"],
+        "Indigenous Affairs": ["First Nations"],
+        "Infrastructure & Transport": ["Transport, Infrastructure and Sustainable Cities"],
+        "Jobs, Industry & Small Business": ["Jobs & Employment"],
+        "Justice, Rights & Civil Liberties": ["Anti-Racism","Justice","LGBTIQA+","Women"],
+        "Science, Technology & Communications": ["Communications","Digital Rights","Science, Industry & Innovation"],
+        "Social Services & Community": ["Disability Rights & Services","Gambling","Social Services","Youth"],
+        "Taxation & Finance": ["Economic Justice and Treasury","Finance"]
+      },
+      "Australian Labor Party": {
+        "Economy & Cost of Living": ["Help with the Cost of Living","Opportunities for Australians"],
+        "Health & Aged Care": ["Stronger Medicare and Aged Care"],
+        "Housing": ["A Fair Go at Your Own Home"],
+        "Infrastructure & Transport": ["Building Australia\u2019s Future"]
+      },
+      "Better Together Party": {
+        "Government, Democracy & Integrity": ["Parliamentary Job-Sharing"]
+      },
+      "Centre Alliance": {
+        "Energy & Resources": ["Utilities"],
+        "Government, Democracy & Integrity": ["Government Accountability & Transparency"],
+        "Taxation & Finance": ["Superannuation"]
+      },
+      "Country Liberal Party (NT)": {
+        "Economy & Cost of Living": ["Rebuild the Economy"],
+        "Justice, Rights & Civil Liberties": ["Reduce Crime"],
+        "Social Services & Community": ["Restore Our Lifestyle"]
+      },
+      "Dai Le & Frank Carbone W.S.C.": {
+        "Economy & Cost of Living": ["Cost of Living"],
+        "Education": ["Education"],
+        "Health & Aged Care": ["Healthcare"],
+        "Housing": ["Housing"],
+        "Infrastructure & Transport": ["Infrastructure"],
+        "Jobs, Industry & Small Business": ["Small Businesses and Manufacturing"],
+        "Taxation & Finance": ["Budget"]
+      },
+      "David Pocock": {
+        "Defence & Veterans": ["Defence & Veterans"],
+        "Economy & Cost of Living": ["Addressing Cost of Living","Stronger Economy"],
+        "Education": ["Improved Skills & Education"],
+        "Environment & Climate": ["Climate Action & Protecting Nature"],
+        "Government, Democracy & Integrity": ["A Stronger Public Service","Greater Integrity","Making Canberra Count"],
+        "Health & Aged Care": ["Better Health & Aged Care"],
+        "Housing": ["Fixing Housing"],
+        "Immigration & Population": ["Immigration & Refugees"],
+        "Indigenous Affairs": ["Standing with First Nations"],
+        "Jobs, Industry & Small Business": ["Supporting Australian Business"],
+        "Justice, Rights & Civil Liberties": ["Equality, Safety & Inclusion"],
+        "Other / Mixed": ["Norfolk Island","Other Policies"]
+      },
+      "Family First Party Australia": {
+        "Economy & Cost of Living": ["Economic Policy"],
+        "Education": ["Education Policy"],
+        "Energy & Resources": ["Energy Policy"],
+        "Housing": ["Housing Policy"],
+        "Justice, Rights & Civil Liberties": ["Firearm Policy","Freedom of Speech and Religion","Gender Policy","Pro Life Policy"],
+        "Other / Mixed": ["Australia First Policy"],
+        "Social Services & Community": ["Childcare Policy","Poverty and Justice Policy"],
+        "Taxation & Finance": ["Family Tax Policy"]
+      },
+      "Fusion Party Australia": {
+        "Economy & Cost of Living": ["Grow a Clean Economy"],
+        "Education": ["Update Our Schools"],
+        "Environment & Climate": ["Repair Our Environment"],
+        "Government, Democracy & Integrity": ["Renew Our Democracy"],
+        "Housing": ["Solve the Housing Crisis"],
+        "Jobs, Industry & Small Business": ["Build Up Small Businesses","Transform Our Industries"],
+        "Social Services & Community": ["Rebuild Our Communities","Restore the Fair Go"],
+        "Taxation & Finance": ["Fix the Tax Exploits"]
+      },
+      "Gerard Rennick People First": {
+        "Defence & Veterans": ["Veterans"],
+        "Education": ["Education","HECS Reform"],
+        "Energy & Resources": ["Energy"],
+        "Environment & Climate": ["Environment"],
+        "Government, Democracy & Integrity": ["Electoral Law Reform","Streamline the Bureaucracy","Whistleblower Protections"],
+        "Health & Aged Care": ["Health & NDIS"],
+        "Immigration & Population": ["Immigration"],
+        "Indigenous Affairs": ["Aboriginal Affairs"],
+        "Infrastructure & Transport": ["Infrastructure Bank & Military Apprenticeship Scheme"],
+        "Jobs, Industry & Small Business": ["Industry Development"],
+        "Justice, Rights & Civil Liberties": ["Digital Surveillance and Coercion","Freedom of Speech and Association","Independent Judicial Commission"],
+        "Science, Technology & Communications": ["Cross-Media Ownership Reform"],
+        "Social Services & Community": ["Flexible Childcare","Gambling"],
+        "Taxation & Finance": ["Capital Markets","Freeze the Fuel Excise","Lower Income Tax","Monetary Policy","Public Bank & Insurance Office","Taxation","Voluntary Superannuation"]
+      },
+      "HEART Party": {
+        "Environment & Climate": ["Environment"],
+        "Government, Democracy & Integrity": ["Accountability","Transparency"],
+        "Health & Aged Care": ["Health"],
+        "Justice, Rights & Civil Liberties": ["Rights"]
+      },
+      "Indigenous-Aboriginal Party of Australia": {
+        "Education": ["Indigenous Control of Indigenous School Education"],
+        "Environment & Climate": ["Healthy Rivers; Healthy People","Support Traditional Custodians, the Natural Environment, and Sustainable Food Production, by Better Managing Water Resources","Traditional Land Management"],
+        "Government, Democracy & Integrity": ["More Indigenous People in Parliaments"],
+        "Health & Aged Care": ["Free Indigenous Suicide Prevention Phone Line"],
+        "Housing": ["Better Housing for Indigenous People Everywhere, Especially in Regional and Remote Areas"],
+        "Indigenous Affairs": ["Local Community-Based Solutions Are Favoured","Local Lands Councils Must Strive to Implement the Concerns of the Local Indigenous Communities","Save Our Sacred Sites","Save the Flag","Treaty and Constitutional Recognition Now"],
+        "Jobs, Industry & Small Business": ["Support Indigenous Businesses"],
+        "Justice, Rights & Civil Liberties": ["End Indigenous Incarceration","No Juveniles to Be Placed in Detention"],
+        "Social Services & Community": ["Indigenous Kids Stay with Their Families"]
+      },
+      "Jacqui Lambie Network": {
+        "Defence & Veterans": ["Defend Those Who Defend Us"],
+        "Education": ["Learn, Earn or Serve"],
+        "Environment & Climate": ["Save Robbins Island"],
+        "Government, Democracy & Integrity": ["Clean Out Canberra Corruption"],
+        "Health & Aged Care": ["Tasmania\u2019s Sick"],
+        "Housing": ["Family Home, Not Holiday Home"],
+        "Jobs, Industry & Small Business": ["Make Australia Make Again"],
+        "Other / Mixed": ["Scrap the Cap"]
+      },
+      "Katter's Australian Party": {
+        "Agriculture & Regional Australia": ["Making Sure Regional and Rural Australia Gets Its Fair Share"],
+        "Defence & Veterans": ["Protecting Australia\u2019s Sovereignty and Independence"],
+        "Education": ["Encouraging the Development of Every Person\u2019s Talents and Skills"],
+        "Foreign Affairs & Trade": ["Putting Australia\u2019s Interests First"],
+        "Justice, Rights & Civil Liberties": ["The Right for Property Owners to Enjoy Their Property"],
+        "Social Services & Community": ["A Fair Go","Christian Values","Personal Responsibility and Accountability","Support for Those in Need","The Importance of Contributing"]
+      },
+      "Legalise Cannabis Australia": {
+        "Agriculture & Regional Australia": ["Hemp Policy"],
+        "Economy & Cost of Living": ["Economic"],
+        "Environment & Climate": ["Environment"],
+        "Health & Aged Care": ["Health"],
+        "Justice, Rights & Civil Liberties": ["Human Rights Issues","Legalisation and Regulation of Cannabis","Personal Use","Policing and Justice"]
+      },
+      "Liberal National Party of Queensland": {
+        "Energy & Resources": ["Cheaper Power"],
+        "Immigration & Population": ["Less Migration & More Homes"],
+        "Other / Mixed": ["Putting Australians First"],
+        "Taxation & Finance": ["Lower Taxes"]
+      },
+      "Liberal Party of Australia": {
+        "Energy & Resources": ["Cheaper Power"],
+        "Immigration & Population": ["Less Migration and More Homes"],
+        "Other / Mixed": ["Putting Australians First"],
+        "Taxation & Finance": ["Lower Taxes"]
+      },
+      "Libertarian Party": {
+        "Economy & Cost of Living": ["Economy"],
+        "Education": ["Education"],
+        "Energy & Resources": ["Energy"],
+        "Foreign Affairs & Trade": ["Foreign Affairs"],
+        "Government, Democracy & Integrity": ["Competitive Federalism","Recall Elections"],
+        "Health & Aged Care": ["Healthcare","Medical Freedom"],
+        "Immigration & Population": ["Immigration"],
+        "Jobs, Industry & Small Business": ["Small Business"],
+        "Justice, Rights & Civil Liberties": ["Family Law","Free Speech","Freedom of Association","Privacy","Self Defence"],
+        "Social Services & Community": ["Women & Children"],
+        "Taxation & Finance": ["Sound Money","Tax-Free Smokes, Beer & Fuel","Voluntary Superannuation"]
+      },
+      "National Party of Australia": {
+        "Agriculture & Regional Australia": ["Our Plan for Agriculture","Our Plan for Regional Australia","Our Plan for Tasmania","Our Plan to Back Australian Fisheries and Forestry"],
+        "Defence & Veterans": ["Supporting Our Veterans"],
+        "Economy & Cost of Living": ["Delivering Cost of Living Relief","Our Plan for Cheaper Fuel","Coalition to Strengthen the Nation\u2019s Finances and Build Our Regions for Future Generations"],
+        "Energy & Resources": ["Our Plan for a Strong Australian Resources Industry","Our Plan to Deliver Australian Gas for Australians"],
+        "Government, Democracy & Integrity": ["Our Plan for an Efficient and Effective Public Service"],
+        "Health & Aged Care": ["Coalition Will Restore Funding for Crucial Suicide Prevention Research","The Coalition Will Deliver a World-Leading Focus on Youth Mental Health","The Coalition Will Invest $9 Billion into Medicare"],
+        "Housing": ["Coalition to Accelerate Approvals to Unlock More Housing Supply","Coalition\u2019s Plan to Tackle Labor\u2019s Housing Crisis","More Affordable Homes"],
+        "Infrastructure & Transport": ["$13 Billion to Get Melbourne Airport Rail Back on Track","Coalition Commits to Greater Adelaide Freight Bypass","Coalition Delivering Infrastructure for Western Sydney Future","Coalition to Increase Regional Road Funding to 80 Per Cent","Coalition to Invest $1 Billion in Local Roads and Community Infrastructure","Coalition to Secure the Port of Darwin","Our Plan to Make Australians Safer on Our Roads"],
+        "Jobs, Industry & Small Business": ["Coalition to Establish Investment Australia to Drive Jobs, Boost Productivity and Lower Costs for All Australians","Our Plan for Small and Family Business","Our Plan to Back Australia\u2019s Skilled Workforce"],
+        "Justice, Rights & Civil Liberties": ["Our Plan to Address Family and Domestic Violence","Our Plan to Keep Australians Safe","Our Plan to Make Communities Safer"],
+        "Taxation & Finance": ["Coalition to Abolish Labor\u2019s Unfair Car Tax, Cutting Costs for Families"]
+      },
+      "Pauline Hanson's One Nation": {
+        "Agriculture & Regional Australia": ["Farming","Fisheries","Forestry"],
+        "Economy & Cost of Living": ["Cost of Living Measures","Foreign Ownership","Lowering Prices for Households, Businesses and Industries"],
+        "Education": ["Education"],
+        "Energy & Resources": ["Embracing Australian Coal","Embracing Nuclear and Hydro","Oil and Gas Policy"],
+        "Environment & Climate": ["Climate","Net Zero Is Destroying Australia","The Real Impacts of Net Zero","Water"],
+        "Government, Democracy & Integrity": ["Citizen Initiated Referenda","Slash Government Waste","Stop the Rorts"],
+        "Health & Aged Care": ["COVID-19 Policy","Health","Medical Cannabis"],
+        "Housing": ["New Housing"],
+        "Immigration & Population": ["Immigration"],
+        "Jobs, Industry & Small Business": ["Australian Jobs and Infrastructure"],
+        "Justice, Rights & Civil Liberties": ["Family Law and Child Support","Firearms Ownership","Free Speech Policy","Pro-Life"],
+        "Taxation & Finance": ["Family Tax Policy","Multinational Taxation"]
+      },
+      "Power 2 People": {
+        "Economy & Cost of Living": ["Affordable Australia"]
+      },
+      "Shooters, Fishers and Farmers Party": {
+        "Agriculture & Regional Australia": ["Farming Policy","Fishing Rights Policy"],
+        "Defence & Veterans": ["Defence Policy"],
+        "Economy & Cost of Living": ["Economy Policy"],
+        "Education": ["Education Policy"],
+        "Energy & Resources": ["Mining and Energy Policy"],
+        "Environment & Climate": ["Climate Change Policy","Outdoor Recreation and Access Policy","Protecting Our Environment Policy"],
+        "Foreign Affairs & Trade": ["Sovereignty, Alliances and Engagement Policy"],
+        "Health & Aged Care": ["Healthcare Policy","Medicinal Cannabis Policy"],
+        "Infrastructure & Transport": ["Road Transport Policy"],
+        "Justice, Rights & Civil Liberties": ["Firearms Law Policy","Freedom, Privacy and Civil Liberties Policy","Women's Rights and Protection Policy"]
+      },
+      "Socialist Alliance": {
+        "Agriculture & Regional Australia": ["Rural and Regional"],
+        "Animal Welfare": ["Animal Welfare"],
+        "Arts & Culture": ["Arts, Culture and Media"],
+        "Economy & Cost of Living": ["Public Ownership to Serve the Public Good"],
+        "Education": ["Education for All"],
+        "Environment & Climate": ["Real Climate Action","Water"],
+        "Foreign Affairs & Trade": ["Solidarity and International Aid, Not War and Occupation","Trade"],
+        "Government, Democracy & Integrity": ["Democracy, Not Corporate Dictatorship"],
+        "Health & Aged Care": ["Aged Care","Free Healthcare for All","Public Health and Pandemics"],
+        "Housing": ["Housing for All"],
+        "Immigration & Population": ["Migrant and Asylum Seeker Rights"],
+        "Indigenous Affairs": ["First Nations Rights"],
+        "Infrastructure & Transport": ["Public Transport in Public Hands"],
+        "Jobs, Industry & Small Business": ["Work for Human Need, Not Profit","Workers' Rights"],
+        "Justice, Rights & Civil Liberties": ["Defend Civil Liberties and Civil Rights","Justice","Lesbian, Gay, Bisexual, Transgender, Intersex and Queer Rights","Women's Rights"],
+        "Social Services & Community": ["National Disability Insurance Scheme","Social Rights","Youth Rights"],
+        "Taxation & Finance": ["Tax the Corporations and the Rich \u2013 No GST"]
+      },
+      "Tammy Tyrrell for Tasmania": {
+        "Agriculture & Regional Australia": ["Salmon Farming"],
+        "Economy & Cost of Living": ["Cheaper Groceries for Tasmania"],
+        "Energy & Resources": ["Helium on the Critical Minerals List"],
+        "Infrastructure & Transport": ["Hobart\u2019s Stadium"],
+        "Justice, Rights & Civil Liberties": ["Eradicating Hate and Antisemitism","Hate Speech Legislation","We Need a Human Rights Act"],
+        "Science, Technology & Communications": ["Age Verification for Social Media","Labelling Bots on Social Media"],
+        "Taxation & Finance": ["Scrap the Under-18 Superannuation Carve-Out","Tasmania & the GST","Tasmania\u2019s Debt Dilemma"]
+      },
+      "The Great Australian Party": {
+        "Agriculture & Regional Australia": ["Primary Industries"],
+        "Animal Welfare": ["Animal Welfare"],
+        "Defence & Veterans": ["Defence"],
+        "Education": ["Education"],
+        "Energy & Resources": ["Energy"],
+        "Environment & Climate": ["Environment","Water"],
+        "Foreign Affairs & Trade": ["International Trade & Treaties"],
+        "Health & Aged Care": ["Health"],
+        "Immigration & Population": ["Immigration & Customs"],
+        "Indigenous Affairs": ["Tribal Federation"],
+        "Infrastructure & Transport": ["Heavy Vehicles","Transport"],
+        "Jobs, Industry & Small Business": ["Employment and Industrial Relations","Industry, Manufacturing, Business & Tourism"],
+        "Justice, Rights & Civil Liberties": ["Firearms","Law & Justice","Nuremberg Code"],
+        "Government, Democracy & Integrity": ["People's Initiated Referenda"],
+        "Science, Technology & Communications": ["Communications, IT and the Arts"],
+        "Social Services & Community": ["Family and Community Services","Seniors & Social Security"],
+        "Taxation & Finance": ["Taxation & Finance"]
+      },
+      "United Australia Party": {
+        "Economy & Cost of Living": ["Lower the Cost of Living"],
+        "Energy & Resources": ["Aussie Gas for Australians / 25% Tax for Exported Australian Gas"],
+        "Other / Mixed": ["Australia Needs a New Deal"]
+      },
+      "Victorian Socialists": {
+        "Economy & Cost of Living": ["Public Ownership of Essential Resources and Services"],
+        "Environment & Climate": ["Real Action on Climate and Environmental Crisis"],
+        "Foreign Affairs & Trade": ["Opposing War"],
+        "Housing": ["Housing for All"],
+        "Jobs, Industry & Small Business": ["Defending and Extending Workers' and Union Rights"],
+        "Taxation & Finance": ["Tax Corporations and the Super-Rich"]
+      }
+    };const SUMMARY = {
+      "Affordable Housing Now – Sustainable Australia Party||Ageing": "Seeks to improve older Australians\u2019 quality of life, including returning pension eligibility to 65, changing couple pension treatment and improving aged, community and home care.",
+      "Affordable Housing Now – Sustainable Australia Party||Animals & Biodiversity": "Calls for stronger biodiversity and habitat protection, stronger national environmental law and animal-welfare standards across farming, research, breeding and other settings.",
+      "Affordable Housing Now – Sustainable Australia Party||Anti-corruption & Governance": "Focuses on political integrity and direct democracy, including citizen-initiated referenda, political-donation reform, election-spending controls and stronger anti-corruption oversight.",
+      "Affordable Housing Now – Sustainable Australia Party||Economy": "Seeks a more diverse and self-sufficient economy with secure employment, stronger manufacturing and measures of national progress broader than GDP.",
+      "Affordable Housing Now – Sustainable Australia Party||Housing & Rental Affordability": "Targets housing affordability through lower migration, more social housing, tax and lending changes, tighter foreign-ownership rules and stronger renter protections.",
+      "Affordable Housing Now – Sustainable Australia Party||Planning & Development": "Calls for more community control over planning, infrastructure before further development, environmental protections and preference for medium-density infill over sprawl and high-rise.",
+      "Affordable Housing Now – Sustainable Australia Party||Population & Immigration (Australia)": "Seeks to slow population growth and lower permanent migration while retaining a humanitarian intake, with a stated long-term population-stabilisation objective.",
+      "Affordable Housing Now – Sustainable Australia Party||Taxation": "Proposes a higher income-tax-free threshold, measures against multinational tax avoidance, resource super-profits taxation and changes to property and superannuation tax settings.",
+      "Animal Justice Party||1080": "Calls for an immediate ban on 1080 poison and rejects lethal population-control methods for animals.",
+      "Animal Justice Party||Abortion": "Supports access to abortion and contraception as part of reproductive choice and bodily autonomy.",
+      "Animal Justice Party||Age of Criminal Responsibility": "Supports raising the minimum age of criminal responsibility from 10 to 14.",
+      "Animal Justice Party||Animal Agriculture": "Opposes animal farming and slaughter for food, fibre and other products and seeks a transition away from animal agriculture.",
+      "Animal Justice Party||Animal Experimentation": "Seeks to rapidly phase out animal experimentation and shift funding and research toward non-animal alternatives.",
+      "Animal Justice Party||Aversive Training": "Opposes animal-training techniques and tools that cause physical or psychological harm and seeks to ban aversive methods.",
+      "Animal Justice Party||Bats and Flying Foxes": "Seeks protection of bats and flying foxes as wildlife rather than treating them as pests, with their habitat and basic needs protected.",
+      "Animal Justice Party||Brumbies": "Treats brumbies as sentient introduced animals requiring protection while acknowledging ecological conflicts associated with free-roaming horse populations.",
+      "Animal Justice Party||Cannabis": "Supports decriminalising cannabis and establishing a lawful, regulated supply.",
+      "Animal Justice Party||Climate Emergency": "Calls for climate policy that includes emissions and environmental impacts associated with animal agriculture and land clearing.",
+      "Animal Justice Party||Cultured Meat": "Supports the potential for cultured meat to replace slaughter-based meat while also considering health implications associated with meat consumption.",
+      "Animal Justice Party||Dingoes": "Treats dingoes as native apex predators with ecological value and opposes their persecution as pests.",
+      "Animal Justice Party||Duck Shooting": "Seeks an immediate ban on recreational duck and quail shooting.",
+      "Animal Justice Party||Fire Management": "Recognises fire as part of Australian ecosystems and supports approaches including First Nations cultural burning to reduce catastrophic-fire risk.",
+      "Animal Justice Party||Fireworks": "Opposes fireworks because of their effects on wildlife and companion animals and seeks to end their use.",
+      "Animal Justice Party||First Nations": "Supports action to address historical and ongoing injustices affecting First Nations peoples.",
+      "Animal Justice Party||Forestry": "Prioritises the ecological, climate and animal value of native forests over commercial logging.",
+      "Animal Justice Party||Fur": "Opposes the production and use of animal fur, including trade in fur products.",
+      "Animal Justice Party||Gambling": "Does not oppose non-animal gambling in principle but opposes forms of gambling that harm or exploit animals.",
+      "Animal Justice Party||Gender Equality": "Supports equality and inclusion for women and gender-diverse people.",
+      "Animal Justice Party||Genetic Manipulation": "Proposes assessing genetic-manipulation issues case by case according to the party\u2019s ethical principles and evidence.",
+      "Animal Justice Party||Great Barrier Reef": "Focuses on protecting the Great Barrier Reef, including addressing sediment and fertiliser runoff entering reef waters.",
+      "Animal Justice Party||Greyhound Racing": "Opposes greyhound racing and seeks to end the use of greyhounds for racing and entertainment.",
+      "Animal Justice Party||Gun Control": "Supports the National Firearms Agreement and gun-control measures intended to reduce firearm-related harm.",
+      "Animal Justice Party||Health": "Supports universal publicly funded healthcare and greater emphasis on disease prevention and population health.",
+      "Animal Justice Party||Healthcare": "Supports affordable, accessible and culturally safe medical, dental and mental-health care.",
+      "Animal Justice Party||Homelessness": "Treats adequate housing as a right and calls for governments to address homelessness.",
+      "Animal Justice Party||Housing": "Supports rapidly increasing social and affordable housing to meet demand.",
+      "Animal Justice Party||International Affairs": "Calls for Australia to act as a responsible global citizen while reducing economic dependence on animal exploitation.",
+      "Animal Justice Party||Introduced Animals": "Rejects language and management approaches that devalue introduced animals and advocates more humane treatment.",
+      "Animal Justice Party||Invertebrates": "Calls for greater recognition and protection of invertebrates because of their intrinsic value and ecological importance.",
+      "Animal Justice Party||Just Transition for Meat Industry Workers": "Supports a transition away from animal agriculture that also addresses the employment and community impacts on meat-industry workers.",
+      "Animal Justice Party||Kangaroos": "Opposes treating kangaroos as pests or commercial resources and seeks stronger protection for them.",
+      "Animal Justice Party||Koalas": "Prioritises koala habitat protection rather than allowing development or tourism interests to determine their treatment.",
+      "Australia's Voice||Housing": "Calls for changes to negative gearing and the capital-gains-tax discount as part of addressing housing affordability.",
+      "Australia's Voice||Bank Reform": "Proposes a Public Bank of Australia and a mandatory banking code of conduct, with a focus on major-bank market power and regional closures.",
+      "Australia's Voice||Supermarket Divestiture": "Proposes divestiture laws that could force major supermarkets to sell assets where market power is abused.",
+      "Australia's Voice||End Political Perks": "Targets parliamentary pay and post-election benefits that the party considers excessive during a cost-of-living crisis.",
+      "Australia's Voice||Republic": "Supports Australia becoming a republic with an Australian head of state chosen by the public.",
+      "Australia's Voice||End the Genocide": "Calls for a stronger Australian response to the war in Gaza and the protection of Palestinian civilians.",
+      "Australia's Voice||End the Resource Rip-Off": "Argues Australian natural resources should deliver greater domestic benefit rather than primarily supporting export profits.",
+      "Australia's Voice||Domestic Violence": "Proposes automatically splitting an abuser\u2019s superannuation with a domestic-violence survivor to provide financial support after abuse.",
+      "Australia's Voice||Parliament Vote on War": "Proposes requiring decisions to take Australia to war to be made by Parliament rather than solely by the executive government.",
+      "Australia's Voice||Defence": "Opposes AUKUS and argues for a defence posture focused more on national resilience and independence.",
+      "Australia's Voice||Real Climate Action": "Calls for faster and more decisive climate action than the party says major parties have delivered.",
+      "Australia's Voice||Fix Student HECS debt": "Proposes lifting the HECS repayment threshold to the median wage.",
+      "Australia's Voice||National Poverty Measure": "Proposes establishing a standard national measure of poverty to guide policy and track outcomes.",
+      "Australia's Voice||Raise Jobseeker": "Supports increasing JobSeeker payments.",
+      "Australia's Voice||Raise the Remote Area Allowance": "Supports increasing and indexing the Remote Area Allowance.",
+      "Australian Christians||Pro Life": "Opposes expansion of abortion and assisted-dying laws and supports stronger legal protections for unborn children, alongside pregnancy and adoption support.",
+      "Australian Christians||Family": "Supports a traditional definition of marriage, additional family counselling and fatherhood programs, and policies intended to strengthen parental roles.",
+      "Australian Christians||Religious Freedom": "Supports protections for freedom of religion, expression, worship and religious-school employment practices.",
+      "Australian Christians||Economy": "Combines housing and tax proposals with lower business regulation, payroll-tax abolition, income splitting and support for limited government and balanced budgets.",
+      "Australian Christians||Education": "Supports a curriculum focused on core academic subjects and Judeo-Christian values, school chaplaincy, homeschooling and parental authority in education.",
+      "Australian Christians||Health": "Focuses on improving health-service capacity and reducing hospital waiting times.",
+      "Australian Christians||Regional Australia": "Seeks greater regional political representation and support for regional communities.",
+      "Australian Christians||Social": "Includes internet filtering intended to shield children from harmful online content.",
+      "Australian Christians||First Nations": "Calls for working with First Nations communities to improve outcomes for Aboriginal children and communities.",
+      "Australian Christians||Environment": "Frames environmental policy around stewardship and responsible management of the natural environment.",
+      "Australian Democrats||Transparency & Accountability": "Focuses on openness, accountability, truth in government and the public\u2019s right to know.",
+      "Australian Democrats||Economy": "Addresses economic and fiscal reform for a modern Australian economy.",
+      "Australian Democrats||Environment & Climate": "Addresses environmental protection and the effects of human activity on climate and quality of life.",
+      "Australian Democrats||Health & Wellbeing": "Sets out reforms intended to improve health outcomes and healthcare access.",
+      "Australian Democrats||Rural & Remote Australia": "Focuses on improving policy outcomes and connections between metropolitan, rural and remote Australia.",
+      "Australian Democrats||Global Affairs & Defence": "Supports an independent Australian defence capability and sets out the party\u2019s international-affairs approach.",
+      "Australian Democrats||Science & Technology": "Supports science and technology as tools for solving major social and economic challenges.",
+      "Australian Democrats||Justice & Equity": "Focuses on equality before the law and a fairer justice system.",
+      "Australian Democrats||Education": "Supports access to high-quality education regardless of a person\u2019s background or role in society.",
+      "Australian Federation Party||Strategic Immigration Policy": "Calls for lower permanent migration with a skills-based approach and closer alignment between migration, housing, infrastructure and services.",
+      "Australian Federation Party||Drive Down the Cost of Living": "Proposes reducing government spending and lowering energy prices as key cost-of-living measures.",
+      "Australian Federation Party||Delivering Affordable Housing": "Focuses on increasing housing supply, reducing regulation and aligning immigration settings with housing availability.",
+      "Australian Federation Party||Secure and Affordable Energy": "Supports lower energy prices, ending net-zero policy and allowing nuclear energy.",
+      "Australian Federation Party||Prosperity Through Innovation": "Emphasises productivity, investment and innovation rather than population growth as drivers of prosperity.",
+      "Australian Labor Party||Help with the Cost of Living": "Groups Labor measures intended to reduce household cost pressures, particularly in the context of higher prices.",
+      "Australian Labor Party||Stronger Medicare and Aged Care": "Focuses on improving access to Medicare-funded healthcare and strengthening aged-care services.",
+      "Australian Labor Party||A Fair Go at Your Own Home": "Groups Labor measures intended to make home ownership more attainable.",
+      "Australian Labor Party||Opportunities for Australians": "Focuses on employment, income and broader opportunities for Australians to improve their living standards.",
+      "Australian Labor Party||Building Australia\u2019s Future": "Groups longer-term investment and nation-building measures alongside immediate cost-of-living support.",
+      "David Pocock||Addressing Cost of Living": "Targets structural drivers of household costs, including housing and tax reform.",
+      "David Pocock||Fixing Housing": "Focuses on reducing homelessness and improving housing affordability.",
+      "David Pocock||Better Health & Aged Care": "Supports more accessible and affordable healthcare and aged care, particularly for people in the ACT.",
+      "David Pocock||Climate Action & Protecting Nature": "Calls for stronger climate action alongside protection and restoration of the natural environment.",
+      "David Pocock||Greater Integrity": "Focuses on political integrity, limiting vested-interest influence and rebuilding trust in institutions.",
+      "Family First Party Australia||Pro Life Policy": "Supports legal and practical measures intended to reduce abortion, strengthen protections for unborn children and repeal euthanasia laws while expanding palliative care.",
+      "Family First Party Australia||Education Policy": "Supports parental choice, a curriculum focused on core academic subjects and Western history, school chaplaincy and greater autonomy for faith-based education.",
+      "Family First Party Australia||Family Tax Policy": "Proposes a higher tax-free threshold and a range of tax concessions based on marriage, children, caregiving and age.",
+      "Family First Party Australia||Housing Policy": "Focuses on releasing land, reducing planning and construction regulation, supporting modular housing, limiting foreign ownership and reducing immigration.",
+      "Family First Party Australia||Energy Policy": "Supports ending net-zero targets and renewable subsidies while expanding coal, gas and nuclear energy.",
+      "Family First Party Australia||Childcare Policy": "Proposes redirecting more childcare support toward parents who care for children at home, alongside tax and vehicle concessions for larger families.",
+      "Family First Party Australia||Gender Policy": "Seeks changes to sex-discrimination and gender-identity law, restrictions on medical gender transition for minors and sex-based rules for sport and facilities.",
+      "Family First Party Australia||Firearm Policy": "Supports lawful firearm ownership and shooting sports while retaining the National Firearms Agreement and targeting illicit firearms.",
+      "Family First Party Australia||Poverty and Justice Policy": "Combines welfare, homelessness, drug, gambling, prostitution, adoption and anti-trafficking proposals under a family-focused social-policy platform.",
+      "HEART Party||Health": "Emphasises individual health autonomy, lifestyle-based prevention, complementary medicine and opposition to fluoridation.",
+      "HEART Party||Environment": "Supports environmental decision-making based on independent evidence, regenerative agriculture and scrutiny of energy, mining and fracking impacts.",
+      "HEART Party||Accountability": "Calls for inquiries into the COVID response and vaccine harms, greater informed-consent protections and stronger accountability for health regulators and pharmaceutical companies.",
+      "HEART Party||Rights": "Centres on a broad bill or charter of rights covering speech, association, religion, privacy, medical choice, cash use and limits on surveillance.",
+      "HEART Party||Transparency": "Calls for disclosure of government conflicts of interest and combines transparency with smaller-government, lower-regulation and domestic-manufacturing proposals.",
+      "Indigenous-Aboriginal Party of Australia||Healthy Rivers; Healthy People": "Calls for protection and restoration of major river systems, including the Baaka/Darling and Martuwarra/Fitzroy, with greater recognition of Indigenous cultural interests.",
+      "Indigenous-Aboriginal Party of Australia||Indigenous Kids Stay with Their Families": "Seeks to prevent child removal except where there is immediate risk, prioritise kinship care and provide intensive in-home support.",
+      "Indigenous-Aboriginal Party of Australia||No Juveniles to Be Placed in Detention": "Seeks alternatives to juvenile detention, especially for Aboriginal children, alongside reform of child-protection systems.",
+      "Indigenous-Aboriginal Party of Australia||End Indigenous Incarceration": "Seeks major reductions in Indigenous imprisonment, greater rehabilitation and alternatives to prison for less serious offending.",
+      "Indigenous-Aboriginal Party of Australia||Save the Flag": "Supports free use of the Aboriginal flag by Aboriginal people; the party marks this issue as a previous policy win.",
+      "Indigenous-Aboriginal Party of Australia||Treaty and Constitutional Recognition Now": "Supports treaty and constitutional recognition of Aboriginal and Torres Strait Islander peoples.",
+      "Jacqui Lambie Network||Defend Those Who Defend Us": "Veterans campaign focused on veteran suicide, implementation of Royal Commission recommendations and support for former service personnel.",
+      "Jacqui Lambie Network||Clean Out Canberra Corruption": "Campaign focused on political donations, favours and stronger accountability in federal politics.",
+      "Jacqui Lambie Network||Family Home, Not Holiday Home": "Housing campaign focused on housing affordability and the use of homes as short-term or holiday accommodation.",
+      "Jacqui Lambie Network||Tasmania\u2019s Sick": "Healthcare campaign focused on problems in Tasmania\u2019s health system; the campaign index provides limited detail in its current preview.",
+      "Jacqui Lambie Network||Learn, Earn or Serve": "Youth-focused campaign framed around giving young people a stronger start through education, employment or service.",
+      "Jacqui Lambie Network||Save Robbins Island": "Campaign about the proposed Robbins Island renewable-energy development and the location of large renewable projects.",
+      "Jacqui Lambie Network||Scrap the Cap": "Veterans campaign opposing a proposed annual cap on allied-health services for Veteran Card holders.",
+      "Katter's Australian Party||A Fair Go": "Broad principle supporting policies intended to give Australians what the party describes as a fair opportunity and fair treatment.",
+      "Katter's Australian Party||Making Sure Regional and Rural Australia Gets Its Fair Share": "Calls for a greater share of public funding and services to go to regional and rural communities.",
+      "Katter's Australian Party||Encouraging the Development of Every Person\u2019s Talents and Skills": "Supports policies intended to develop individual initiative, skills and talents, particularly for children.",
+      "Katter's Australian Party||The Right for Property Owners to Enjoy Their Property": "Supports strong property rights and limiting government interference with property except where serious health or safety concerns arise.",
+      "Katter's Australian Party||Putting Australia\u2019s Interests First": "Calls for governments to prioritise Australia\u2019s social, economic and sovereign interests.",
+      "Katter's Australian Party||Christian Values": "States that Australian public life should continue to reflect Christian-derived values and responsibilities.",
+      "Katter's Australian Party||Personal Responsibility and Accountability": "Emphasises personal responsibility and accountability as guiding principles for public policy.",
+      "Katter's Australian Party||Support for Those in Need": "Supports assistance for people in genuine need while emphasising pathways toward self-support.",
+      "Katter's Australian Party||Protecting Australia\u2019s Sovereignty and Independence": "Supports stronger defence, national economic self-sufficiency and Australian control over strategic land, resources and infrastructure.",
+      "Legalise Cannabis Australia||Legalisation and Regulation of Cannabis": "Supports legal adult cannabis under a regulated model, including home growing, licensed production and retail, expungement of personal-use convictions and impairment-based drug-driving rules.",
+      "Legalise Cannabis Australia||Hemp Policy": "Seeks national reforms to expand industrial hemp cultivation, processing, research, construction use and access to finance.",
+      "Legalise Cannabis Australia||Human Rights Issues": "Frames cannabis prohibition as a civil- and human-rights issue involving bodily autonomy, policing, affordability and discrimination.",
+      "Legalise Cannabis Australia||Personal Use": "Supports treating adult cannabis use similarly to alcohol, including age restrictions, home growing and regulated dispensaries.",
+      "Legalise Cannabis Australia||Policing and Justice": "Argues legalisation would reduce cannabis-related policing and court costs and supports impairment-based rather than presence-based drug-driving enforcement.",
+      "Legalise Cannabis Australia||Health": "Supports broader and cheaper access to cannabis medicines and public education about cannabis and hemp as health products.",
+      "Liberal Party of Australia||Lower Taxes": "Proposes reversing selected Labor tax measures, introducing a Tax Back Guarantee, making a $50,000 instant asset write-off permanent for eligible small businesses and reducing regulation.",
+      "Liberal Party of Australia||Cheaper Power": "Supports ending net-zero policy and expanding energy supply with the stated objective of lowering power prices.",
+      "Liberal Party of Australia||Less Migration and More Homes": "Proposes linking net overseas migration to housing completions, changing skilled migration and visa rules, and using infrastructure and regulatory changes to increase housing supply.",
+      "Liberal Party of Australia||Putting Australians First": "Proposes restraining government spending, creating a Future Generations Fund, reducing debt and investing in major infrastructure and national security.",
+      "Liberal National Party of Queensland||Lower Taxes": "Proposes tax reductions and small-business incentives, including the Coalition\u2019s Tax Back Guarantee and permanent instant asset write-off.",
+      "Liberal National Party of Queensland||Cheaper Power": "Supports ending net-zero policy and expanding energy supply with the stated objective of lowering power prices.",
+      "Liberal National Party of Queensland||Less Migration & More Homes": "Proposes linking migration levels to new housing, changing skilled migration and increasing housing supply.",
+      "Liberal National Party of Queensland||Putting Australians First": "Focuses on lowering public debt and investing through a Future Generations Fund in infrastructure and national priorities.",
+      "National Party of Australia||Our Plan for Regional Australia": "Proposes a long-term Regional Australia Future Fund plus investment in local roads, community infrastructure, regional health training and other regional services.",
+      "National Party of Australia||Coalition to Accelerate Approvals to Unlock More Housing Supply": "Proposes faster approvals and related reforms intended to increase the supply of new housing.",
+      "National Party of Australia||More Affordable Homes": "Coalition housing package intended to increase housing supply and improve affordability and home ownership.",
+      "National Party of Australia||Delivering Cost of Living Relief": "Package of measures presented as reducing household cost pressures.",
+      "National Party of Australia||Our Plan for a Strong Australian Resources Industry": "Supports the resources sector through policy intended to encourage investment, production and jobs.",
+      "National Party of Australia||Our Plan to Deliver Australian Gas for Australians": "Supports increasing domestic gas availability and production for Australian households and industry.",
+      "Pauline Hanson's One Nation||Water": "Proposes new water infrastructure including dams, disclosure of water ownership and restrictions on foreign ownership of water.",
+      "Pauline Hanson's One Nation||Australian Jobs and Infrastructure": "Prioritises Australian workers and proposes expanding national apprenticeships alongside infrastructure policy.",
+      "Pauline Hanson's One Nation||New Housing": "Proposes a five-year GST exemption on building materials for eligible new homes, reviews of government fees and changes to construction requirements.",
+      "Pauline Hanson's One Nation||Cost of Living Measures": "Combines electricity, fuel, freight, tax and Medicare measures intended to reduce household and business costs.",
+      "Pauline Hanson's One Nation||Citizen Initiated Referenda": "Supports a mechanism allowing citizens to initiate referendum questions or proposed legislation.",
+      "Pauline Hanson's One Nation||Climate": "Rejects mainstream assessments of the scale and causes of climate change and calls for continued scrutiny of climate science and policy.",
+      "Pauline Hanson's One Nation||Immigration": "Supports substantially lower immigration, arguing current levels place pressure on housing, infrastructure, services and wages.",
+      "Pauline Hanson's One Nation||Medical Cannabis": "Supports lower-cost access to medicinal cannabis and continued federal advocacy for cannabis-based treatments.",
+      "Pauline Hanson's One Nation||Multinational Taxation": "Opposes increases to GST and death duties and supports measures intended to make multinational companies pay more Australian tax.",
+      "Socialist Alliance||First Nations Rights": "Supports treaties, First Nations self-determination and community control of services, land-rights measures and implementation of major justice recommendations.",
+      "Socialist Alliance||Defend Civil Liberties and Civil Rights": "Supports a bill of rights, stronger protest and privacy rights, repeal of anti-terror and data-retention laws and greater community control of policing.",
+      "Socialist Alliance||Water": "Supports public planning of water use, tighter restrictions on mining and speculative water rights, catchment protection and environmentally sustainable flows.",
+      "Socialist Alliance||Animal Welfare": "Supports stronger national animal-welfare law, ending live export and animal entertainment, reducing factory farming and strengthening cruelty standards.",
+      "Socialist Alliance||Housing for All": "Supports a large public-housing program, rent controls, stronger renter rights, limits on property speculation and housing-first responses to homelessness.",
+      "Socialist Alliance||Social Rights": "Supports higher welfare payments, a guaranteed adequate income, public employment services and expanded childcare and social support.",
+      "Socialist Alliance||Free Healthcare for All": "Supports expanded universal public healthcare including dental and mental health, reduced reliance on private insurance and broader public health services.",
+      "Socialist Alliance||Education for All": "Supports free public education at all levels, abolition of HECS debt and increased public and TAFE funding.",
+      "Socialist Alliance||Public Transport in Public Hands": "Supports publicly owned, frequent and free public transport with major rail investment.",
+      "Socialist Alliance||Justice": "Supports less punitive approaches to crime, higher age of criminal responsibility, alternatives to imprisonment, legal-aid funding and public operation of prisons.",
+      "Socialist Alliance||Arts, Culture and Media": "Supports public funding and income security for arts workers, stronger community media and digital rights including net neutrality and open-source government software.",
+      "Tammy Tyrrell for Tasmania||Hobart\u2019s Stadium": "Opposes spending on the proposed Hobart stadium and argues the money should be directed elsewhere.",
+      "Tammy Tyrrell for Tasmania||Age Verification for Social Media": "Addresses youth online safety through age-verification policy while arguing that education and digital literacy remain important.",
+      "Tammy Tyrrell for Tasmania||We Need a Human Rights Act": "Supports a national Human Rights Act to address gaps in Australian rights protections.",
+      "Tammy Tyrrell for Tasmania||Scrap the Under-18 Superannuation Carve-Out": "Supports extending superannuation entitlements to workers under 18 rather than maintaining the existing carve-out.",
+      "Tammy Tyrrell for Tasmania||Salmon Farming": "Argues that economic development and environmental protection can coexist and addresses regulation of Tasmania\u2019s salmon industry.",
+      "The Great Australian Party||Animal Welfare": "Supports recognising animals as sentient, stronger national welfare standards, criminal penalties for cruelty and an independent national animal-welfare regulator.",
+      "The Great Australian Party||Environment": "Supports environmental protection while opposing various international climate agreements and carbon taxes, and calls for national-park, coastal and anti-fracking protections.",
+      "The Great Australian Party||Energy": "Supports Australian control of energy resources, lower fuel prices, cleaner fuels and selected renewable technologies while opposing international climate-policy constraints.",
+      "The Great Australian Party||Immigration & Customs": "Supports zero net immigration subject to review, tighter border and visa rules and withdrawal from international migration obligations the party considers inconsistent with Australian sovereignty.",
+      "The Great Australian Party||Firearms": "Supports national consistency in firearm laws, easier access for licensed owners and recognition of hunting, sport and pest control as legitimate reasons for firearm ownership.",
+      "The Great Australian Party||Primary Industries": "Supports domestic agriculture and other primary industries through protection from imported pests, lower input costs, stronger bargaining arrangements and national food security.",
+      "United Australia Party||Australia Needs a New Deal": "Umbrella platform proposing major changes across energy, immigration, taxation, housing finance, resource exports, national debt, regional development and social support.",
+      "United Australia Party||Lower the Cost of Living": "Links lower living costs primarily to cheaper domestic energy and changes to net-zero and energy policy.",
+      "United Australia Party||Aussie Gas for Australians / 25% Tax for Exported Australian Gas": "Proposes no tax on gas used for Australian power generation and a 25% tax on exported Australian gas.",
+      "Victorian Socialists||Housing for All": "Supports housing as a right, stronger renter protections, large-scale public housing, controls on property speculation and measures intended to reduce rents.",
+      "Victorian Socialists||Tax Corporations and the Super-Rich": "Supports higher taxation of large corporations and wealthy individuals to fund public services and redistribute wealth.",
+      "Victorian Socialists||Public Ownership of Essential Resources and Services": "Supports reversing privatisation and bringing major sectors and essential services into public ownership.",
+      "Victorian Socialists||Opposing War": "Opposes AUKUS, the US alliance and increased military spending, and supports redirecting military expenditure toward social services.",
+      "Victorian Socialists||Defending and Extending Workers' and Union Rights": "Supports stronger union power, higher wages and conditions, and expanded rights to organise and strike.",
+      "Victorian Socialists||Real Action on Climate and Environmental Crisis": "Calls for faster emissions reductions and structural economic change beyond net-zero-by-2050 commitments."
+    };const SRC_OVERRIDE = {
+      "Affordable Housing Now – Sustainable Australia Party||Ageing": "https://www.sustainableaustralia.org.au/ageing",
+      "Affordable Housing Now – Sustainable Australia Party||Animals & Biodiversity": "https://www.sustainableaustralia.org.au/animals_and_biodiversity",
+      "Affordable Housing Now – Sustainable Australia Party||Anti-corruption & Governance": "https://www.sustainableaustralia.org.au/anti_corruption_and_governance",
+      "Affordable Housing Now – Sustainable Australia Party||Economy": "https://www.sustainableaustralia.org.au/economy",
+      "Affordable Housing Now – Sustainable Australia Party||Housing & Rental Affordability": "https://www.sustainableaustralia.org.au/housing",
+      "Affordable Housing Now – Sustainable Australia Party||Planning & Development": "https://www.sustainableaustralia.org.au/planning/",
+      "Affordable Housing Now – Sustainable Australia Party||Population & Immigration (Australia)": "https://www.sustainableaustralia.org.au/population",
+      "Affordable Housing Now – Sustainable Australia Party||Taxation": "https://www.sustainableaustralia.org.au/taxation",
+      "Australian Christians||Economy": "https://www.australianchristians.org.au/positions/economy/",
+      "Australian Christians||Education": "https://www.australianchristians.org.au/positions/education/",
+      "Australian Christians||Family": "https://www.australianchristians.org.au/positions/family/",
+      "Australian Christians||Pro Life": "https://www.australianchristians.org.au/positions/pro-life/",
+      "Australian Christians||Religious Freedom": "https://www.australianchristians.org.au/positions/religious-freedom/",
+      "Family First Party Australia||Pro Life Policy": "https://www.familyfirstparty.org.au/pro_life_policy",
+      "Family First Party Australia||Education Policy": "https://www.familyfirstparty.org.au/education_policy",
+      "Family First Party Australia||Family Tax Policy": "https://www.familyfirstparty.org.au/family_tax_policy",
+      "Family First Party Australia||Housing Policy": "https://www.familyfirstparty.org.au/housing_policy",
+      "Family First Party Australia||Energy Policy": "https://www.familyfirstparty.org.au/energy_policy",
+      "Family First Party Australia||Childcare Policy": "https://www.familyfirstparty.org.au/childcare_policy",
+      "Family First Party Australia||Gender Policy": "https://www.familyfirstparty.org.au/gender_policy",
+      "Family First Party Australia||Firearm Policy": "https://www.familyfirstparty.org.au/firearm_policy",
+      "Family First Party Australia||Poverty and Justice Policy": "https://www.familyfirstparty.org.au/poverty_and_justice_policy",
+      "HEART Party||Health": "https://heartparty.com.au/Policies-Health",
+      "HEART Party||Accountability": "https://heartparty.com.au/Policies-Accountability",
+      "HEART Party||Rights": "https://heartparty.com.au/Policies-Rights",
+      "Legalise Cannabis Australia||Personal Use": "https://www.legalisecannabis.org.au/personal-use",
+      "Legalise Cannabis Australia||Human Rights Issues": "https://www.legalisecannabis.org.au/human-rights-issues",
+      "Legalise Cannabis Australia||Policing and Justice": "https://www.legalisecannabis.org.au/policing-and-justice",
+      "Legalise Cannabis Australia||Health": "https://www.legalisecannabis.org.au/health",
+      "Liberal Party of Australia||Lower Taxes": "https://www.liberal.org.au/our-plan/tax",
+      "Liberal Party of Australia||Less Migration and More Homes": "https://www.liberal.org.au/our-plan/migration",
+      "Liberal Party of Australia||Putting Australians First": "https://www.liberal.org.au/our-plan/australians",
+      "National Party of Australia||Our Plan for Regional Australia": "https://www.nationals.org.au/election-policies/our-plan-for-regional-australia",
+      "Shooters, Fishers and Farmers Party||Firearms Law Policy": "https://www.shootersfishersandfarmers.org.au/fed_firearms",
+      "The Great Australian Party||Animal Welfare": "https://www.greataustralianparty.com.au/policies/animal-welfare-policy",
+      "The Great Australian Party||Environment": "https://www.greataustralianparty.com.au/policies/environment",
+      "The Great Australian Party||Energy": "https://www.greataustralianparty.com.au/policies/energy-policy",
+      "The Great Australian Party||Firearms": "https://www.greataustralianparty.com.au/policies/firearms",
+      "The Great Australian Party||Immigration & Customs": "https://www.greataustralianparty.com.au/policies/immigration-and-customs",
+      "The Great Australian Party||Primary Industries": "https://www.greataustralianparty.com.au/policies/primary-industries",
+      "Victorian Socialists||Housing for All": "https://victoriansocialists.org.au/campaigns/federal-election-2025",
+      "Victorian Socialists||Tax Corporations and the Super-Rich": "https://victoriansocialists.org.au/campaigns/federal-election-2025",
+      "Victorian Socialists||Public Ownership of Essential Resources and Services": "https://victoriansocialists.org.au/campaigns/federal-election-2025",
+      "Victorian Socialists||Opposing War": "https://victoriansocialists.org.au/campaigns/federal-election-2025",
+      "Victorian Socialists||Defending and Extending Workers' and Union Rights": "https://victoriansocialists.org.au/campaigns/federal-election-2025",
+      "Victorian Socialists||Real Action on Climate and Environmental Crisis": "https://victoriansocialists.org.au/campaigns/federal-election-2025"
+    };const STATUS_NOTE = {
+      official_current_verification_needed_for_individual_items: "A full policy index could not be reliably verified for every item.",
+      official_current_destination_needs_identity_verification: "Current web presence redirects elsewhere \u2014 flagged for verification.",
+      official_2025_election_platform_still_published: "Still presents its 2025 election platform.",
+      official_2025_election_platform: "Current index is largely 2025 election material rather than a newly consolidated platform.",
+      official_current_but_mainly_nt_platform: "Current site is primarily its Northern Territory platform, not a separate federal catalogue.",
+      official_current_campaigns: "Presented as campaigns rather than a conventional policy index.",
+      official_current_principles: "Presented as guiding principles rather than an A\u2013Z policy index.",
+      official_current_with_some_historical_wins: "Includes some items the party itself marks as already-achieved wins.",
+      official_current_developing_platform: "Broader policy platform is still being developed.",
+      verification_required: "Source verification required \u2014 no current first-party index has been confirmed.",
+      official_2025_federal_campaign: "Federal platform shown here is from the 2025 federal campaign."
+    };</script>
+<script>
+(function () {
+  "use strict";
+
+  var ACCENT = "#46596B";
+
+  function slugify(str) {
+    return str
+      .toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-+|-+$)/g, "");
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function fallbackSummary(category, title, status) {
+    if (status === "verification_required") {
+      return "Previously identified as a policy area, but a current first-party source was not verified in this research pass; treat this summary as provisional.";
+    }
+    var lower = title.toLowerCase();
+    var templates = {
+      "Agriculture & Regional Australia": "Sets out the party\u2019s position on " + lower + ", within agriculture, regional development or rural policy.",
+      "Animal Welfare": "Sets out the party\u2019s position on " + lower + ", with a focus on the treatment, protection or management of animals.",
+      "Arts & Culture": "Covers the party\u2019s approach to " + lower + " and cultural policy.",
+      "Defence & Veterans": "Covers the party\u2019s approach to " + lower + ", defence, national security or support for veterans.",
+      "Economy & Cost of Living": "Covers the party\u2019s economic approach to " + lower + ", including its stated priorities for household or business conditions.",
+      "Education": "Covers the party\u2019s approach to " + lower + " and the education system.",
+      "Energy & Resources": "Covers the party\u2019s approach to " + lower + ", energy supply, resources or related industry policy.",
+      "Environment & Climate": "Covers the party\u2019s approach to " + lower + ", environmental protection, climate or natural-resource management.",
+      "Foreign Affairs & Trade": "Covers the party\u2019s approach to " + lower + ", international relations, trade, aid or conflict.",
+      "Government, Democracy & Integrity": "Covers the party\u2019s position on " + lower + ", government institutions, democratic reform or political accountability.",
+      "Health & Aged Care": "Covers the party\u2019s approach to " + lower + ", healthcare, public health, mental health or aged care.",
+      "Housing": "Covers the party\u2019s approach to " + lower + ", housing supply, affordability, renting or home ownership.",
+      "Immigration & Population": "Covers the party\u2019s approach to " + lower + ", migration, refugees or population policy.",
+      "Indigenous Affairs": "Covers the party\u2019s position on " + lower + " and issues affecting Aboriginal and Torres Strait Islander peoples.",
+      "Infrastructure & Transport": "Covers the party\u2019s approach to " + lower + ", transport networks or public infrastructure.",
+      "Jobs, Industry & Small Business": "Covers the party\u2019s approach to " + lower + ", employment, industry, manufacturing or small business.",
+      "Justice, Rights & Civil Liberties": "Covers the party\u2019s position on " + lower + ", law, rights, justice or civil liberties.",
+      "Science, Technology & Communications": "Covers the party\u2019s approach to " + lower + ", science, technology, communications or digital policy.",
+      "Social Services & Community": "Covers the party\u2019s approach to " + lower + ", families, community support, welfare or social policy.",
+      "Taxation & Finance": "Covers the party\u2019s approach to " + lower + ", taxation, public finance, banking or superannuation.",
+      "Other / Mixed": "A broad or cross-cutting policy item titled \u201c" + title + "\u201d that spans more than one standard category."
+    };
+    return templates[category] || ("Official party policy or position titled \u201c" + title + "\u201d.");
+  }
+
+  // ---- Derived, static structure (computed once from the data in data.js) ----
+
+  var PARTY_NAMES = Object.keys(SRC).sort(function (a, b) {
+    return a.toLowerCase().localeCompare(b.toLowerCase());
+  });
+
+  var CATEGORY_SET = {};
+  Object.keys(CATS).forEach(function (party) {
+    Object.keys(CATS[party]).forEach(function (cat) { CATEGORY_SET[cat] = true; });
+  });
+  var CATEGORY_NAMES = Object.keys(CATEGORY_SET).sort(function (a, b) {
+    return a.toLowerCase().localeCompare(b.toLowerCase());
+  });
+
+  function buildPartyCategories(name) {
+    var src = SRC[name] || { u: "", s: "unknown" };
+    var catsRaw = CATS[name] || {};
+    var catNames = Object.keys(catsRaw).sort(function (a, b) {
+      return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
+    return catNames.map(function (catName) {
+      var titles = catsRaw[catName].slice().sort(function (a, b) {
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+      });
+      var policies = titles.map(function (title) {
+        var key = name + "||" + title;
+        var summary = SUMMARY[key] || fallbackSummary(catName, title, src.s);
+        var sourceUrl = SRC_OVERRIDE[key] || src.u || null;
+        return { title: title, summary: summary, sourceUrl: sourceUrl };
+      });
+      return { name: catName, policies: policies };
+    });
+  }
+
+  // Precompute once — this never changes at runtime, only the selection state does.
+  var PARTY_CATEGORIES = {};
+  PARTY_NAMES.forEach(function (name) { PARTY_CATEGORIES[name] = buildPartyCategories(name); });
+
+  // ---- State ----
+
+  var selectedParties = {};
+  PARTY_NAMES.forEach(function (name) { selectedParties[slugify(name)] = true; });
+
+  var selectedCategories = {};
+  CATEGORY_NAMES.forEach(function (name) { selectedCategories[slugify(name)] = true; });
+
+  // ---- Static filter checklists (built once; only checked state changes) ----
+
+  function buildChecklist(containerId, names, selectionMap, onToggle) {
+    var container = document.getElementById(containerId);
+    names.forEach(function (name) {
+      var slug = slugify(name);
+      var label = document.createElement("label");
+      label.className = "party-row";
+      var input = document.createElement("input");
+      input.type = "checkbox";
+      input.className = "party-check";
+      input.checked = selectionMap[slug] !== false;
+      input.addEventListener("change", function () {
+        selectionMap[slug] = input.checked;
+        onToggle();
+        render();
+      });
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(name));
+      container.appendChild(label);
+      label._checkbox = input;
+      label._slug = slug;
+    });
+    return container;
+  }
+
+  var partyChecklistEl = buildChecklist("party-checklist", PARTY_NAMES, selectedParties, function () {});
+  var categoryChecklistEl = buildChecklist("category-checklist", CATEGORY_NAMES, selectedCategories, function () {});
+
+  function setAllChecked(containerEl, selectionMap, value) {
+    Array.prototype.forEach.call(containerEl.children, function (label) {
+      label._checkbox.checked = value;
+      selectionMap[label._slug] = value;
+    });
+  }
+
+  document.getElementById("party-select-all").addEventListener("click", function () {
+    setAllChecked(partyChecklistEl, selectedParties, true);
+    render();
+  });
+  document.getElementById("party-clear-all").addEventListener("click", function () {
+    setAllChecked(partyChecklistEl, selectedParties, false);
+    render();
+  });
+  document.getElementById("category-select-all").addEventListener("click", function () {
+    setAllChecked(categoryChecklistEl, selectedCategories, true);
+    render();
+  });
+  document.getElementById("category-clear-all").addEventListener("click", function () {
+    setAllChecked(categoryChecklistEl, selectedCategories, false);
+    render();
+  });
+
+  // ---- Render ----
+
+  function policyHtml(policy) {
+    var sourceHtml = policy.sourceUrl
+      ? '<a href="' + escapeHtml(policy.sourceUrl) + '" target="_blank" rel="noopener noreferrer" style="font-size: 13px; color: ' + ACCENT + ';">Source \u2197</a>'
+      : '<span style="font-size: 13px; color: #8B877E;">Source: verification pending</span>';
+
+    return (
+      '<div style="display: flex; flex-direction: column; gap: 8px;">' +
+        '<h4 style="font-size: 17px;">' + escapeHtml(policy.title) + '</h4>' +
+        '<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A3733;">' + escapeHtml(policy.summary) + '</p>' +
+        '<div style="display: flex; align-items: center; gap: 16px; margin-top: 2px;">' +
+          sourceHtml +
+          '<details class="js-dropdown" style="position: relative; display: inline-block;">' +
+            '<summary style="font-size: 13px; color: #8B877E;">\u24D8 AI info</summary>' +
+            '<p class="ai-info-note">Category assigned by AI \u00B7 Summary generated from the linked source \u00B7 Original policy title unchanged.</p>' +
+          '</details>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function categoryHtml(cat) {
+    return (
+      '<div class="category-block">' +
+        '<p class="category-label">' + escapeHtml(cat.name) + '</p>' +
+        '<div class="policy-grid">' + cat.policies.map(policyHtml).join("") + '</div>' +
+      '</div>'
+    );
+  }
+
+  function partySectionHtml(name) {
+    var slug = slugify(name);
+    var src = SRC[name] || { u: "", s: "unknown" };
+    var note = STATUS_NOTE[src.s] || null;
+
+    var visibleCategories = PARTY_CATEGORIES[name].filter(function (cat) {
+      return selectedCategories[slugify(cat.name)] !== false;
+    });
+
+    var totalPolicies = 0;
+    visibleCategories.forEach(function (cat) { totalPolicies += cat.policies.length; });
+
+    var isSelected = selectedParties[slug] !== false;
+    var isVisible = isSelected && visibleCategories.length > 0;
+    if (!isVisible) return { html: "", visible: false };
+
+    var countLabel = totalPolicies + (totalPolicies === 1 ? " policy" : " policies");
+    var noteHtml = note
+      ? '<p style="margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: #8B877E; max-width: 62ch;">' + escapeHtml(note) + '</p>'
+      : "";
+
+    var html =
+      '<section id="' + slug + '" style="padding-top: 48px;">' +
+        '<div style="border-top: 2px solid ' + ACCENT + '; padding-top: 20px; margin-bottom: 8px;">' +
+          '<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">' +
+            '<h2 class="party-title" style="font-size: 28px; color: #1C1B19;">' + escapeHtml(name) + '</h2>' +
+            '<span style="font-size: 13px; color: #8B877E; white-space: nowrap;">' + countLabel + '</span>' +
+          '</div>' +
+          noteHtml +
+        '</div>' +
+        visibleCategories.map(categoryHtml).join("") +
+      '</section>';
+
+    return { html: html, visible: true };
+  }
+
+  function render() {
+    var partyListEl = document.getElementById("party-list");
+    var emptyStateEl = document.getElementById("empty-state");
+
+    var sectionsHtml = "";
+    var anyVisible = false;
+    PARTY_NAMES.forEach(function (name) {
+      var result = partySectionHtml(name);
+      if (result.visible) { anyVisible = true; sectionsHtml += result.html; }
+    });
+
+    partyListEl.innerHTML = sectionsHtml;
+    emptyStateEl.innerHTML = anyVisible
+      ? ""
+      : '<p style="font-size: 15px; line-height: 1.6; color: #66625B; padding-top: 48px;">Nothing to show. Check your party and category filters above, or Select all to reset.</p>';
+
+    var selectedPartyCount = PARTY_NAMES.filter(function (n) { return selectedParties[slugify(n)] !== false; }).length;
+    var selectedCategoryCount = CATEGORY_NAMES.filter(function (n) { return selectedCategories[slugify(n)] !== false; }).length;
+
+    document.getElementById("party-filter-label").textContent = "Filter parties \u00B7 " + selectedPartyCount + " of " + PARTY_NAMES.length + " selected";
+    document.getElementById("party-filter-count").textContent = selectedPartyCount + " of " + PARTY_NAMES.length + " selected";
+    document.getElementById("category-filter-label").textContent = "Filter categories \u00B7 " + selectedCategoryCount + " of " + CATEGORY_NAMES.length + " selected";
+    document.getElementById("category-filter-count").textContent = selectedCategoryCount + " of " + CATEGORY_NAMES.length + " selected";
+  }
+
+  document.getElementById("party-count-hero").textContent = String(PARTY_NAMES.length);
+
+  // Close any open <details class="js-dropdown"> when clicking outside it.
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll("details.js-dropdown[open]").forEach(function (el) {
+      if (!el.contains(e.target)) el.removeAttribute("open");
+    });
+  }, true);
+
+  render();
+})();
+</script>
+</body>
+</html>
